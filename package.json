@@ -8,17 +8,18 @@
     "gatsby"
   ],
   "scripts": {
-    "dev": "pn clean && gatsby develop",
+    "dev": "pnpm clean && gatsby develop",
     "clean": "gatsby clean",
-    "build": "pn clean && pn build",
-    "serve": "pn build && gatsby serve",
+    "build": "pnpm clean && gatsby build",
+    "serve": "pnpm build && gatsby serve",
     "ts:check": "tsc --noEmit",
     "ts:xpile": "tsc",
     "format:check": "prettier --check src/",
     "format:write": "prettier --write src/",
     "shad:add": "pnpm dlx shadcn-ui@latest add",
     "shad:init": "pnpm dlx shadcn-ui@latest init",
-    "commitlint": "commitlint --edit"
+    "commitlint": "commitlint --edit",
+    "ghp:deploy": "pnpm build && gh-pages --dist public --branch site"
   },
   "dependencies": {
     "@radix-ui/react-navigation-menu": "^1.1.4",
