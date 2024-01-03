@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunksite=self.webpackChunksite||[]).push([[218],{5330:function(e,n,t){t.r(n),t.d(n,{Head:function(){return o},default:function(){return l}});var u=t(959),r=t(1870);function l(){return u.createElement("main",null,u.createElement("h1",null,"Page not found"),u.createElement(r.rU,{to:"/"},"Go home"),".")}function o(){return u.createElement("title",null,"Oopsies.. 404 Not Found.")}}}]);
+//# sourceMappingURL=component---src-pages-404-tsx-d2953b2bde56ace73c57.js.map
