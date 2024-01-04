@@ -27,7 +27,7 @@ const Configuration: UserConfig = {
     'scope-max-length': [Warning, 'always', 36],
     'scope-min-length': [Error, 'always', 0],
     'scope-enum': [Warning, 'always', [
-      'comp', 'section', 'page',
+      'comp', 'section', 'page', 'template',
       'blog', 'proj',
       'setup', 'misc',
       'merge'

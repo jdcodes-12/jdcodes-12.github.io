@@ -1,51 +1,64 @@
 import React from "react"
 import { type PageProps, graphql, Link } from "gatsby"
 import { processDate } from "@utils";
+import { ArrowRight, ArrowLeft } from "lucide-react";
+import { cn } from '@utils';
+import { Badge } from "@primitives/badge";
 
-// {
-//   "node": {
-//     "frontmatter": {
-//       "date": "2024-01-03T20:39:47-0600",
-//       "series": "Grokking Web: Networking",
-//       "slug": "/intro-to-networking/how-computers-communicate",
-//       "tags": [
-//         "web",
-//         "networking"
-//       ],
-//       "title": "Networking: How Computers Communicate"
-//     }
-//   }
-// },
+type DataProps = {
+  blog: {
+    content: string
+    meta: {
+      series?: string
+      date: string
+      title: string
+      tags?: string[]
+      prevUrl?: string
+      nextUrl?: string
+    }
+  }
+}
 
-// type DataProps = {
-//   blog: {
-//     content: string
-//     meta: {
-//       series?: string
-//       date: string
-//       title: string
-//       tags?: string[]
-//       slug: string
-//     }
-//   }
-// }
-
-export default function BlogPostTemplate({ data }: any) {
+// TODO: Add image plugin for pictures?
+// TODO: Add prism plugin for code styling?
+export default function BlogPostTemplate({ data }: PageProps<DataProps>) {
   const { content, meta } = data.blog;
   const { series, date, title, tags, nextUrl, prevUrl } = meta;
 
   return (
-    <article>
-      <span className="text-2xl">{processDate(date)}</span>
-      <span>{series}</span>
-      <h1>{title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: content }} />
-      <ul className="space-y-4">
-        {tags.map((tag: string) => <li>tag</li>)}
-      </ul>
-      {/* {lastModified && <span>{lastModified}</span>} */}
-      <Link to={prevUrl}>PREVIOUS BLOG</Link>
-      <Link to={nextUrl}>NEXT BLOG</Link>
+    <article className="container prose space-y-8 text-2xl">
+      <header className="flex flex-col space-y-8">
+        <span className="sr-only">{`${series}: ${title}`}</span>
+        <div className="flex justify-between items-start">
+          <small className="text-2xl font-normal">{processDate(date)}</small>
+          <small className="text-md font-extralight italic">Updated: {processDate(date)}</small>
+        </div>
+        <span className="flex space-x-4">
+          {tags?.map((tag: string) => <Badge variant={'default'}>{tag}</Badge>)}
+        </span>
+      </header>
+      <main dangerouslySetInnerHTML={{ __html: content }} />
+      <div 
+        className={cn(
+          "w-full flex justify-between items-center", 
+          {
+            'justify-end': !prevUrl
+          }
+        )}
+      >
+        { prevUrl ?  
+          <Link to={prevUrl} className="inline-flex items-center space-x-4 not-prose">
+            <ArrowLeft />
+            <span className="font-light text-lg">Previous Article</span>
+          </Link> : null
+        }
+        { nextUrl ? 
+         <Link to={nextUrl} className="inline-flex items-center space-x-4 not-prose">
+          <span className="font-light text-lg">Next Article</span>
+          <ArrowRight />
+        </Link> : null  
+        } 
+      </div>
     </article>
   );
 }
@@ -60,8 +73,8 @@ export const query = graphql`
         date
         title
         tags
-        nextUrl
         prevUrl
+        nextUrl
       }
     }
   }
