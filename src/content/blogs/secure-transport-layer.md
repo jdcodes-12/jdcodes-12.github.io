@@ -1,11 +1,11 @@
 ---
-slug: '/intro-to-networking/network-architecture/secure-transport-layer'
-series: 'Grokking Web: Networking'
-title: 'Network Architecture: Secure Transport Layer'
+slug: /blogs/intro-to-networking/network-architecture/secure-transport-layer
+series: "Grokking Web: Networking"
+title: "Network Architecture: Secure Transport Layer"
 date: 2024-01-03T20:39:47-0600
-# lastModified: null
-# nextUrl: null
-# prevUrl: null
+lastModified: null
+prevUrl: /blogs/intro-to-networking/network-architecture/application-layer
+nextUrl: /blogs/intro-to-networking/network-architecture/osi-model/physical-layer
 tags:
   - web
   - networking

@@ -1,11 +1,11 @@
 ---
-slug: '/intro-to-networking/how-computers-communicate'
-series: 'Grokking Web: Networking'
-title: 'Networking: How Computers Communicate'
+slug: /blogs/intro-to-networking/how-computers-communicate
+series: "Grokking Web: Networking"
+title: "Networking: How Computers Communicate"
 date: 2024-01-03T20:39:47-0600
-# lastModified: null
-# nextUrl: null
-# prevUrl: null
+lastModified: null
+prevUrl: null
+nextUrl: /blogs/intro-to-networking/network-architecture/overview
 tags:
   - web
   - networking

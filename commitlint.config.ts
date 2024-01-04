@@ -39,10 +39,10 @@ const Configuration: UserConfig = {
     'subject-exclamation-mark': [Warning, 'never'],
     'type-enum': [Error, 'always',[
       'UI',
-      'CONTENT',
+      'CTN',
       'CQ', 
       'PM',
-      'REVERT',
+      'REV',
     ]],
     'type-case': [Error, 'always', 'upper-case'],
     'type-empty': [Error, 'never'],

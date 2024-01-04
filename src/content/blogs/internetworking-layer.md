@@ -1,11 +1,11 @@
 ---
-slug: '/intro-to-networking/network-architecture/internetworking-layer'
-series: 'Grokking Web: Networking'
-title: 'Network Architecture: Internetworking Layer (IP)'
+slug: /blogs/intro-to-networking/network-architecture/internetworking-layer
+series: "Grokking Web: Networking"
+title: "Network Architecture: Internetworking Layer (IP)"
 date: 2024-01-03T20:39:47-0600
-# lastModified: null
-# nextUrl: null
-# prevUrl: null
+lastModified: null
+prevUrl: /blogs/intro-to-networking/network-architecture/link-layer
+nextUrl: /blogs/intro-to-networking/network-architecture/the-domain-name-system
 tags:
   - web
   - networking

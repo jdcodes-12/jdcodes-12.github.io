@@ -3,22 +3,23 @@ module.exports = {
   darkMode: ['class'],
   content: [
     './src/pages/*.{ts,tsx}',
-    './src/sections/*.{ts,tsx}',
-    './src/ui/layouts/.{ts,tsx}',
-    './src/ui/components/.{ts,tsx}',
-    './src/ui/primitives/.{ts,tsx}',
+    './src/sections/**/*.{ts,tsx}',
+    './src/templates/**/*.{ts,tsx}',
+    './src/ui/layouts/**/*.{ts,tsx}',
+    './src/ui/components/**/*.{ts,tsx}',
+    './src/ui/primitives/**/*.{ts,tsx}',
   ],
   prefix: '',
   theme: {
     container: {
       center: true,
       padding: '2rem',
-      screens: {
-        tablet: '640px',
-        laptop: '1024px',
-        desktop: '1280px',
-        'desk-lg': '1400px',
-      },
+    },
+    screens: {
+      tablet: '640px',
+      laptop: '1024px',
+      desktop: '1280px',
+      'desk-lg': '1400px',
     },
     extend: {
       colors: {

@@ -31,10 +31,12 @@
     "paths": {
       "@ui/*": ["./src/ui/components/*"],
       "@styles/*": ["./src/ui/styles/*"],
+      "@variants/*": ["./src/ui/styles/variants/*"],
       "@primitives/*": ["./src/ui/primitives/*"],
       "@pages/*": ["./src/pages/*"],
-      "@section/*": ["./src/sections/*"],
+      "@sections/*": ["./src/sections/*"],
       "@layouts/*": ["./src/ui/layouts/*"],
+      "@config/*": ["./src/config/*"],
       "@types": ["./src/lib/types"],
       "@utils": ["./src/lib/utils"],
       "@hooks/*": ["./src/lib/hooks/*"],
@@ -113,7 +115,7 @@
   },
   "include": [
     "./src/**/*", 
-    "./gatsby-node.ts", 
+    "gatsby-node.js", 
     "./gatsby-config.ts", 
     "./plugins/**/*"
   ]

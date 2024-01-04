@@ -2,8 +2,11 @@ import type { GatsbyConfig } from 'gatsby';
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `site`,
-    siteUrl: `https://www.yourdomain.tld`,
+    title: 'Johnny, an Ambitious Web Developer',
+    siteUrl: 'https://jdcodes-12.github.io/',
+    description: 'A minimalistic portfolio holding blog articles and various' +
+    'projects worked on by Johnny Dickson (i.e. jdcodes-12 on Github). Come' +
+    'take a look!'
   },
   // graphqlTypegen: true,
   plugins: [
@@ -12,6 +15,7 @@ const config: GatsbyConfig = {
     'gatsby-plugin-sitemap',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    'gatsby-transformer-remark',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -24,7 +28,7 @@ const config: GatsbyConfig = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'blogs',
-        path: `${__dirname}/src/assets/blogs/`,
+        path: `${__dirname}/src/content/blogs/`,
       },
       __key: 'blogs',
     },
