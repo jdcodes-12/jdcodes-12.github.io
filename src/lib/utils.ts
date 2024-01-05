@@ -1,5 +1,7 @@
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
+import { MouseEvent } from 'react';
+import { saveAs } from 'file-saver';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -8,8 +10,8 @@ export function cn(...inputs: ClassValue[]) {
 export function processDate(dateString: string) {
 
   // Write closures inside for returning diff 
-  // formats;
-  
+  // formats??
+
   const months = [
     'Jan', 'Feb', 'Mar', 'Apr',
     'May', 'Jun', 'Jul', 'Aug',
@@ -27,4 +29,19 @@ export function processDate(dateString: string) {
   const day = date.getDate();
 
   return `${months[month]}. ${day}, ${year}`;
+}
+
+export function downloadResume(event: MouseEvent) {
+  event.preventDefault();
+  
+  const filename = '/johnathan-dickson-developer-resume.pdf';
+
+  fetch(filename)
+    .then((response) => response.blob())
+    .then((blob) => saveAs(blob, filename))
+    .catch((error) => console.error('Error downloading PDF:', error));
+};
+
+export function smoothScrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }

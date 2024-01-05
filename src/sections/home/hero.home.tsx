@@ -2,8 +2,11 @@ import React from 'react'
 
 export default function Hero() {
   return (
-    <div>
-      Homepage Hero
-    </div>
+    <>
+      <p className=''>
+        <span>Hey, I'm Johnny</span>
+        <span>a Web Developer building useful things.</span>
+      </p>
+    </>
   );
 }
