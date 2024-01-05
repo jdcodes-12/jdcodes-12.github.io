@@ -14,9 +14,8 @@ export const badgeVariants = cva(`
     variants: {
       variant: {
         default:`
-          rounded-lg 
           border-transparent 
-          bg-primary 
+          bg-primary
           text-primary-foreground
           px-3
           py-2
@@ -26,7 +25,7 @@ export const badgeVariants = cva(`
         destructive:
           'border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80',
         outline: 'text-foreground',
-        tag: 'rounded-md text-xs px-3 py-2',
+        tag: 'rounded-md text-xs px-3 py-2 bg-primary text-primary-foreground',
       },
     },
     defaultVariants: {

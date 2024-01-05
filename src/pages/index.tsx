@@ -1,13 +1,18 @@
 import React from 'react';
-import { Button } from '@primitives/button';
+import RootLayout from '@layouts/root-layout.component';
+import RecentArticles from '@sections/home/recent-articles.home';
+import FeaturedProjects from '@sections/home/featured-projects.home';
+import Hero from '@sections/home/hero.home';
 
 export default function Homepage() {
   return (
-    <main>
-      <Button className='font-bold text-md bg-indigo-300 rounded-lg p-1.5'>
-        Hello World
-      </Button>
-    </main>
+    <RootLayout>
+      <main className='container space-y-32'>
+        <Hero />
+        <FeaturedProjects />
+        <RecentArticles />
+      </main>
+    </RootLayout>
   );
 }
 

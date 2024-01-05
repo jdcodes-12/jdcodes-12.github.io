@@ -26,7 +26,7 @@ export default function ArticleCard(
     } = article;
 
   return (
-    <Card>
+    <Card className='shadow-lg shadow-neutral-200'>
       <CardHeader 
         className='
           space-y-8
@@ -35,12 +35,13 @@ export default function ArticleCard(
         '
       >
         <Badge
-          variant={'secondary'}
+          variant={'default'}
           className='
             w-32 
             inline-flex 
             items-center 
             justify-center
+            rounded-md
           '
         >
           {processDate(uploadDate.toISOString())}
@@ -76,7 +77,7 @@ export default function ArticleCard(
           {tags?.map((tag) => 
             <Badge
               key={tag} 
-              variant={'default'}
+              variant={'tag'}
             >
               {tag}
             </Badge>
@@ -92,7 +93,7 @@ export default function ArticleCard(
           '
         >
           <span className='flex justify-between'>
-            <Link to={`/${url}`}>View More</Link>
+            <Link to={`/${url}`} className='w-full'>View More</Link>
             <ExternalLink />
           </span>
         </Button>

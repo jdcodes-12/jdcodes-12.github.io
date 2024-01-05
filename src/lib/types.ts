@@ -14,3 +14,8 @@ export type SocialButtonInfo = {
   href: string
   icon: LucideIcon
 }
+
+export type NavigationLink = {
+  href: string
+  label: string
+}
