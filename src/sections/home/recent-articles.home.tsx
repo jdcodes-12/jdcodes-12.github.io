@@ -1,8 +1,29 @@
 import React from 'react'
 import ArticleGrid from '@ui/grids/article-grid.component';
-import { ARTICLES } from '@config/mock-data';
+import { useStaticQuery, graphql } from 'gatsby';
 
 export default function RecentArticles() {
+
+  const data = useStaticQuery(graphql`
+     query GetNineMostRecentBlogs {
+      files: allMarkdownRemark(
+        limit: 9, 
+        sort: {frontmatter: {date: DESC}}
+      ) {
+        articles: nodes {
+          meta: frontmatter {
+            slug
+            date
+            series
+            title
+            description
+            tags
+          }
+        }
+      }
+    }
+  `);
+  
   return (
     <section className='space-y-16'>
         <h2 
@@ -15,7 +36,10 @@ export default function RecentArticles() {
         >
           Recent Posts
         </h2>
-        <ArticleGrid articles={ARTICLES} />
+        <ArticleGrid 
+          articles={data ? data!.files.articles : []} 
+        />
     </section>
   );
 }
+

@@ -1,11 +1,12 @@
 import { LucideIcon } from "lucide-react";
 
 export type Article = {
+  slug: string
+  date: string
+  lastModified?: string
+  series?: string
   title: string
-  uploadDate: Date
-  modifyDate?: Date
   description: string
-  url: string
   tags?: string[]
 }
 

@@ -16,14 +16,19 @@ import {
 export default function ArticleCard(
   { article }: { article: Article }
 ) {
+  
+  console.log('Inside article card')
+  console.log(article);
+
   const { 
-      description, 
-      title, 
-      uploadDate,
-      modifyDate, 
-      url, 
-      tags
-    } = article;
+    slug,
+    date,
+    lastModified,
+    series,
+    title, 
+    description, 
+    tags
+  } = article;
 
   return (
     <Card className='shadow-lg shadow-neutral-200'>
@@ -44,7 +49,7 @@ export default function ArticleCard(
             rounded-md
           '
         >
-          {processDate(uploadDate.toISOString())}
+          {processDate(date)}
         </Badge>
         <CardTitle>{title}</CardTitle>         
       </CardHeader>
@@ -61,7 +66,7 @@ export default function ArticleCard(
           laptop:leading-relaxed
         '
       >
-       {description}
+       <p>{description}</p>
       </CardContent>
       <CardFooter className='flex-col items-start space-y-4'>
         <span 
@@ -93,11 +98,11 @@ export default function ArticleCard(
           '
         >
           <span className='flex justify-between'>
-            <Link to={`/${url}`} className='w-full'>View More</Link>
+            <Link to={`${slug}`} className='w-full'>View More</Link>
             <ExternalLink />
           </span>
         </Button>
-        { modifyDate ?  
+        { lastModified ?  
           <span 
             className='
               flex 
@@ -109,7 +114,7 @@ export default function ArticleCard(
             '
           >
               <small>Last Modified:</small>
-              <small>{processDate(modifyDate.toString())}</small>
+              <small>{processDate(lastModified?.toString())}</small>
           </span> : null}
       </CardFooter>
     </Card>

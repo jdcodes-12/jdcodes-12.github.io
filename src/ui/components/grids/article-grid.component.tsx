@@ -4,14 +4,16 @@ import ArticleCard from '@ui/cards/article-card.component';
 import { type Article } from '@types';
 
 export default function ArticleGrid(
-  { articles }: { articles: Article[] }
+  { articles }: { articles: any[] }
 ) {
+  console.log(articles);
+
   return (
     <Grid>
-      {articles?.map((article) => 
+      {articles?.map((article: any) => 
         <ArticleCard 
-          key={article.url}
-          article={article}
+          key={article.meta.title}
+          article={article.meta}
         />
       )}
     </Grid>

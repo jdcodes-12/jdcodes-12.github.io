@@ -10,12 +10,14 @@ type DataProps = {
   blog: {
     content: string
     meta: {
-      series?: string
       date: string
+      lastModified?: string
+      series?: string
       title: string
-      tags?: string[]
+      description: string
       prevUrl?: string
       nextUrl?: string
+      tags?: string[]
     }
   }
 }
@@ -54,11 +56,11 @@ export default function BlogPostTemplate({ data }: PageProps<DataProps>) {
               <span className="font-light text-lg">Previous Article</span>
             </Link> : null
           }
-          { nextUrl ? 
-          <Link to={nextUrl} className="inline-flex items-center space-x-4 not-prose">
-            <span className="font-light text-lg">Next Article</span>
-            <ArrowRight />
-          </Link> : null  
+          { nextUrl ?
+            <Link to={nextUrl} className="inline-flex items-center space-x-4 not-prose">
+              <span className="font-light text-lg">Next Article</span>
+              <ArrowRight />
+            </Link> : null  
           } 
         </div>
       </article>
@@ -72,9 +74,10 @@ export const query = graphql`
     blog: markdownRemark(frontmatter: {slug: {eq: $slug}}) {
       content: html
       meta: frontmatter {
-        series
         date
+        series
         title
+        description
         tags
         prevUrl
         nextUrl
