@@ -1,11 +1,11 @@
 import React from 'react'
 import { graphql, type PageProps, Link } from 'gatsby'
-import Footer from '@sections/footer-section.global'
 import RootLayout from '@layouts/root-layout.component'
+import ArticleGrid from '@ui/grids/article-grid.component'
 
 interface DataProps {
   files: {
-    blogs: {
+    articles: {
       info: {
         meta: {
           slug: string
@@ -16,18 +16,13 @@ interface DataProps {
   }
 }
 
-// Blog Grid goes here
-export default function BlogListingPage({ data }: PageProps<DataProps>) {
+export default function ArticlesListingPage({ data }: PageProps<DataProps>) {
   return (
    <RootLayout>
-      <div className='flex flex-col'>
-        {
-          data.files.blogs.map((blog: any) => {
-            const blogUrl = blog.info.meta.slug;
-            return <Link to={blogUrl}>{blog.info.meta.title}</Link>
-          
-          })}
-      </div>
+      <ArticleGrid 
+        articles={data.files.articles}
+        twoColumnOnLaptop
+      />
     </RootLayout>
   );
 }
@@ -35,11 +30,15 @@ export default function BlogListingPage({ data }: PageProps<DataProps>) {
 export const query = graphql`
   query GetAllBlogs {
     files: allMarkdownRemark {
-      blogs: edges {
+      articles: edges {
         info: node {
           meta: frontmatter {
-            slug
-            title
+            slug,
+            date,
+            series,
+            title, 
+            description,
+            tags
           }
         }
       }

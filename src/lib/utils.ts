@@ -30,18 +30,3 @@ export function processDate(dateString: string) {
 
   return `${months[month]}. ${day}, ${year}`;
 }
-
-export function downloadResume(event: MouseEvent) {
-  event.preventDefault();
-  
-  const filename = '/johnathan-dickson-developer-resume.pdf';
-
-  fetch(filename)
-    .then((response) => response.blob())
-    .then((blob) => saveAs(blob, filename))
-    .catch((error) => console.error('Error downloading PDF:', error));
-};
-
-export function smoothScrollToTop() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}

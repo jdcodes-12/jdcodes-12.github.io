@@ -1,21 +1,35 @@
 import React from 'react'
 import { Button } from '@primitives/button'
-import { downloadResume } from '@utils'
+import { useStaticQuery, graphql } from 'gatsby';
 
 export default function DownloadButton() {
+  const { resume } = useStaticQuery(graphql`
+    query GetResumeFilePath {
+      resume: file(
+        id: {eq: "e8b15cf6-dd9d-57c6-b749-85421bacbf2f"}
+      ) {
+        name
+        publicURL
+      }
+    }
+  `);
+
+
   return (
     <Button
-      onClick={() => {}}
+      variant={'default'}
+      asChild
       className='
-        cursor-not-allowed
-        shadow-none
-        text-lg
         py-6
-        bg-neutral-300
-        hover:bg-neutral-300
+        shadow-lg
       '
     >
-      Download My Resume
+      <a
+        href={resume.publicURL}
+        download={'johnathan-dickson-developer-resume.pdf'}
+      >
+        Download My Resume
+      </a>
     </Button>
   );
 }
