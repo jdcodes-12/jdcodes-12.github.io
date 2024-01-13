@@ -24,8 +24,8 @@ export default function Hero() {
               font-semibold not-italic
               
             '
-          >Web Developer</em>
-          &nbsp;building useful software.
+          >Software Developer</em>
+          &nbsp;building useful things.
         </span>
       </p>
       <p className='
