@@ -1,11 +1,17 @@
 import React, { type ReactNode } from 'react';
+import { cn } from '@utils';
 
-export default function Grid(
-  { children }: { children: ReactNode }
-) {
+interface GridProps {
+  children: ReactNode
+  twoColumnOnLaptop?: boolean
+}
+export default function Grid({ 
+  children,
+  twoColumnOnLaptop = false
+}: GridProps) {
   return (
     <div
-      className='
+      className={cn(`
         grid
         grid-cols-1
         gap-y-8
@@ -17,7 +23,9 @@ export default function Grid(
         laptop:gap-x-4
         desk-lg:gap-y-12
         desk-lg:gap-x-8
-      '
+      `,{
+        'laptop:grid-cols-2': twoColumnOnLaptop
+      })}
     >
      {children}
     </div>

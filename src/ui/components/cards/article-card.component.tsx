@@ -16,9 +16,6 @@ import {
 export default function ArticleCard(
   { article }: { article: Article }
 ) {
-  
-  console.log('Inside article card')
-  console.log(article);
 
   const { 
     slug,
